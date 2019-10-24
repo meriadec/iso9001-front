@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import Table from "../Table";
+import Table from "../components/Table";
 
 const Dashboard = ({ data }) => (
   <Container>
+    <CenterLink to="/scan" />
     <Row>
       <Cell title="pcb number" hue={200}>
         <Table
@@ -36,7 +38,7 @@ const Dashboard = ({ data }) => (
         <Table
           items={data.current_materials}
           cols={currentMaterialCols}
-          getKey={item => item.id}
+          getKey={item => item.type}
         />
       </Cell>
     </Row>
@@ -161,11 +163,31 @@ const CellTitle = styled.div`
   line-height: 1;
   padding: 10px;
   display: inline-block;
-  background: hsl(0, 0%, 15%);
+  background: hsl(0, 0%, 17%);
   border-bottom: 2px solid hsl(0, 0%, 12%);
   border-right: 2px solid hsl(0, 0%, 12%);
   z-index: 1;
   color: hsl(${p => p.hue}, 100%, 60%);
+`;
+
+const CenterLink = styled(Link)`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 4px;
+  transition: 100ms linear background;
+
+  &:hover {
+    background: hsl(0, 20%, 20%);
+  }
+
+  &:active {
+    background: hsl(0, 20%, 30%);
+  }
 `;
 
 export default Dashboard;
