@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.11.0",
+    "regenerator-runtime": "^0.13.3"
+  }
+}
